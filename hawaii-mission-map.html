@@ -700,6 +700,10 @@ figure { margin: 0 0 14px; }
 figure img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 6px; display: block; background: var(--line); }
 figcaption { font: .72rem/1.4 system-ui, sans-serif; color: var(--muted); margin-top: 4px; }
 figcaption a { color: var(--muted); }
+blockquote { margin: 0 0 12px; padding: 8px 12px; border-left: 3px solid var(--accent); background: var(--bg); border-radius: 0 6px 6px 0; }
+blockquote p { margin: 0; font-style: italic; font-size: .98rem; }
+blockquote cite { display: block; margin-top: 4px; font: .72rem/1.4 system-ui, sans-serif; color: var(--muted); font-style: normal; }
+blockquote cite a { color: var(--muted); }
 .flag { font: .8rem/1.4 system-ui, sans-serif; background: var(--flag-bg); color: var(--flag-ink); padding: 8px 10px; border-radius: 6px; margin-bottom: 12px; }
 .src { font: .8rem system-ui, sans-serif; }
 .src a { display: block; color: var(--accent); margin-top: 3px; }
@@ -800,6 +804,11 @@ var PINS = [
     flag:"This is the only coordinate taken from a source. The 1865 chapel build date is an inference.",
     src:[["Ensign Peak Foundation: Laie","https://ensignpeakfoundation.org/laie-sugar-plantation"],["BYU RSC: A Gathering Place in Laie","https://rsc.byu.edu/laie-hawaii-temple-century-aloha/gathering-place-laie"]] }
 ];
+PINS.push({ n:17, name:"San Francisco, bound for Honolulu", island:"California", lat:37.80, lng:-122.40, approx:true, date:"Nov 22, 1850",
+  story:"Ten elders who had been working the California gold fields were called by Apostle Charles C. Rich in September 1850 to spend the winter in the Sandwich Islands. Mission president Hiram Clark joined them in San Francisco on Nov 8. They booked passage between decks on the English ship Imaum of Muscat, bound for the East Indies by way of Honolulu, and sailed through the Golden Gate on Nov 22.",
+  flag:"The sailing date comes from Bigler's 1896 retelling and the Church History site. Sources give the voyage as 20 days by the dates, but Cannon later wrote nearly four weeks. The captain's name is spelled Ritches and Riches. Whether all ten came from the gold fields is not confirmed. The pin marks the harbor area only.",
+  src:[["Cannon's journal, Nov 1850","https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/11-1850"],["Cannon, My First Mission (1879-80)","https://www.gutenberg.org/ebooks/45049"],["Church History: stories of faith","https://churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-01-greater-blessings-than-we-had-asked?lang=eng"],["Dialogue: After Sutter's Mill","https://www.dialoguejournal.com/articles/after-sutters-mill-the-life-of-henry-bigler-1848-1900/"]] });
+
 
 var IMAGES = {
  "1": {
@@ -871,10 +880,72 @@ var IMAGES = {
   "credit": "Btphelps (photograph, 1921)",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Laie_Hawaii_Temple_1921.jpg"
+ },
+ "17": {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/SanFranciscoharbor1851c_sharp.jpg?width=900",
+  "caption": "San Francisco harbor at Yerba Buena Cove, 1850 or 1851, a daguerreotype from the Gold Rush. A general view of the anchorage, not a picture of the ship.",
+  "credit": "Unknown photographer (daguerreotype, c. 1850-51)",
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:SanFranciscoharbor1851c_sharp.jpg"
+ },
+ "5": {
+  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa%2C_Island_of_Kauai_by_Lossing-Barritt.jpg?width=900",
+  "caption": "Extinct volcanoes near Koloa, wood engraving published in 1854. A landscape near the town, not a picture of the meetings.",
+  "credit": "Benson J. Lossing and William Barritt, in G. W. Bates, Sandwich Island Notes (1854)",
+  "license": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa,_Island_of_Kauai_by_Lossing-Barritt.jpg"
  }
 };
 
-var ORDER = [1, 2, 4, 5, 6, 3, 7, 8, 15, 9, 11, 12, 10, 13, 14, 16];
+var ORDER = [17, 1, 2, 4, 5, 6, 3, 7, 8, 15, 9, 11, 12, 10, 13, 14, 16];
+
+var CJ = "https://www.churchhistorianspress.org/george-q-cannon/1850s/";
+var MEM = "https://www.gutenberg.org/ebooks/45049";
+var QUOTES = {
+  17: [
+    { t: "I thought that I spoke to him and said that I wished I was in possession of such Faith and he replied that it was my privilege and that I ought to have it", w: "Cannon's journal, Nov 22, 1850, describing a dream of Joseph Smith praying at an anchor", u: CJ + "1850/11-1850" },
+    { t: "I crawled out of my berth and went on deck but soon had to go below to vomit.", w: "Cannon's journal, Nov 23, 1850", u: CJ + "1850/11-1850" },
+    { t: "we succeeded in obtaining a passage between decks on the good ship Imaum of Muscat, Captain Ritches, commander.", w: "Cannon, My First Mission (a memoir written in 1879-80)", u: MEM }
+  ],
+  1: [
+    { t: "after rounding a point we came in sight of Honolulu and the shipping; the town is built upon an extensive flat of great fertility", w: "Cannon's journal, Dec 12, 1850", u: CJ + "1850/12-1850" }
+  ],
+  2: [
+    { t: "we turned off to some falls [Kapena Falls] to the right to wash our bodies; it was a fine place to swim in and very deep", w: "Cannon's journal, Dec 13, 1850 (brackets are the editors')", u: CJ + "1850/12-1850" },
+    { t: "we then made an altar of our stones and sung a hymn and then all spoke round what our desires were", w: "Cannon's journal, Dec 13, 1850 (the editors' insertion marks removed)", u: CJ + "1850/12-1850" },
+    { t: "We had the spirit with us I could feel it very sensibly.", w: "Cannon's journal, Dec 13, 1850", u: CJ + "1850/12-1850" }
+  ],
+  4: [
+    { t: "I wrote out a notice for him to give out, for a meeting in the afternoon.", w: "Cannon's journal, Dec 22, 1850, after Rev. Taylor agreed to announce a meeting", u: CJ + "1850/12-1850" }
+  ],
+  7: [
+    { t: "he asked where I was going and if I had eaten. I told him not.", w: "Cannon's journal, Mar 8, 1851, arriving in Wailuku", u: CJ + "1851/03-1851" }
+  ],
+  8: [
+    { t: "He said there were five of these men [who] had come to these Islands and he warned the people to beware of them.", w: "Cannon's journal, Mar 30, 1851, describing Rev. Conde's sermon", u: CJ + "1851/03-1851" }
+  ],
+  15: [
+    { t: "I rode in a stranger in the midst of strangers", w: "Cannon's journal, Aug 7, 1851, arriving in Lahaina", u: CJ + "1851/08-1851" },
+    { t: "upon riding up to the house of Nalimanui by the warm reception I met with from the folks", w: "Cannon's journal, Aug 7, 1851", u: CJ + "1851/08-1851" }
+  ],
+  9: [
+    { t: "Met according to appointment—I was blessed with considerable of the spirit", w: "Cannon's journal, Aug 6, 1851", u: CJ + "1851/08-1851" },
+    { t: "There were two ordained teachers—Bro. Kaleohano and Bro. Maiola—There were three deacons ordained", w: "Cannon's journal, Aug 6, 1851", u: CJ + "1851/08-1851" }
+  ],
+  11: [
+    { t: "To day had been appointed for a conference to organise the branches", w: "Cannon's journal, Aug 18, 1851", u: CJ + "1851/08-1851" }
+  ],
+  12: [
+    { t: "After two weeks' absence, I returned to Keanae, and we organized four branches of the Church in that region.", w: "Cannon, My First Mission (a memoir written in 1879-80)", u: MEM }
+  ]
+};
+
+// Corrections from the journal
+Object.assign(byNumEarly(2), { flag: "Cannon's journal places the falls on the way up Nuuanu Valley and its editors identify them as Kapena Falls. The altar's exact hilltop was never found, so the pin is rough." });
+Object.assign(byNumEarly(15), { date: "Aug 7, 1851", story: "On Aug 7, 1851 Cannon rode into Lahaina and was warmly received at the house of Nalimanui, near the north end of the Old Prison. A separate account says he had a deeply spiritual experience at this home.", flag: "The journal spells the name Nalimanui. The spiritual experience comes from one undated magazine account. The site is a rough guess, and Lahaina was badly damaged by the 2023 fire." });
+Object.assign(byNumEarly(9), { flag: "Cannon's journal confirms the Aug 6, 1851 meeting and the men ordained. The place name is spelled Kealahou in one source and Kealakou in another, and one source says Pulehu." });
+Object.assign(byNumEarly(11), { flag: "The journal confirms the conference on Aug 18, 1851 and that three missionaries wrote from Lahaina that week. It does not name Honomanu in the part I read, and the position is rough." });
+function byNumEarly(n) { for (var i = 0; i < PINS.length; i++) { if (PINS[i].n === n) return PINS[i]; } }
 
 var map = L.map("map", { zoomControl: true, scrollWheelZoom: false }).setView([20.7, -157.2], 7);
 var streets = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" });
@@ -907,10 +978,15 @@ var story = document.getElementById("story");
 var introEl = document.createElement("section");
 introEl.className = "step intro active";
 introEl.innerHTML = '<div class="card intro"><div class="when">1850 &ndash; 1865</div><h1>Ten elders, four islands, fifteen years</h1>' +
-  '<p>In December 1850 ten missionaries landed in Honolulu with no common language and no map of where the work would begin. Scroll to follow them from the harbor to Laie.</p>' +
+  '<p>On November 22, 1850 ten missionaries sailed out of San Francisco for islands most of them had never seen. Scroll to follow them from the Golden Gate to Laie, with George Q. Cannon\'s own journal along the way.</p>' +
   '<div class="hint">Teal pins have a specific site. Amber pins are approximate. Scroll, or tap a pin.</div></div>';
 story.appendChild(introEl);
 
+function quotesHtml(n) {
+  return (QUOTES[n] || []).map(function (q) {
+    return '<blockquote><p>\u201c' + esc(q.t) + '\u201d</p><cite><a href="' + q.u + '" target="_blank" rel="noopener">' + esc(q.w) + '</a></cite></blockquote>';
+  }).join("");
+}
 var els = [introEl];
 steps.forEach(function (p, i) {
   var s = document.createElement("section");
@@ -923,7 +999,7 @@ steps.forEach(function (p, i) {
   }
   var links = p.src.map(function (x) { return '<a href="' + x[1] + '" target="_blank" rel="noopener">' + esc(x[0]) + '</a>'; }).join("");
   s.innerHTML = '<div class="card"><div class="when">' + esc(p.date) + '</div><h2>' + (i + 1) + '. ' + esc(p.name) + '</h2>' +
-    '<div class="where">' + esc(p.island) + '</div>' + fig + '<p>' + esc(p.story) + '</p>' +
+    '<div class="where">' + esc(p.island) + '</div>' + fig + '<p>' + esc(p.story) + '</p>' + quotesHtml(p.n) +
     '<div class="flag">' + esc(p.flag) + '</div><div class="src">' + links + '</div></div>';
   story.appendChild(s);
   els.push(s);
