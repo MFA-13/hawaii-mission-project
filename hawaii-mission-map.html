@@ -877,11 +877,12 @@ var IMAGES = {
 var ORDER = [1, 2, 4, 5, 6, 3, 7, 8, 15, 9, 11, 12, 10, 13, 14, 16];
 
 var map = L.map("map", { zoomControl: true, scrollWheelZoom: false }).setView([20.7, -157.2], 7);
-var streets = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", { subdomains: "abcd", maxZoom: 19, attribution: "&copy; OpenStreetMap contributors &copy; CARTO" });
+var streets = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" });
+var esriStreets = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "&copy; Esri, HERE, Garmin, OpenStreetMap contributors" });
 var satellite = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" });
 var topo = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "&copy; Esri, USGS, NOAA" });
 streets.addTo(map);
-L.control.layers({ "Streets": streets, "Satellite": satellite, "Topographic": topo }).addTo(map);
+L.control.layers({ "Streets": streets, "Esri Streets": esriStreets, "Satellite": satellite, "Topographic": topo }).addTo(map);
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
