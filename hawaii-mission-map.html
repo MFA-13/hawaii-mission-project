@@ -708,6 +708,20 @@ blockquote cite a { color: var(--muted); }
 .src { font: .8rem system-ui, sans-serif; }
 .src a { display: block; color: var(--accent); margin-top: 3px; }
 .intro h1 { font-size: 2.1rem; margin: 6px 0 10px; line-height: 1.1; text-wrap: balance; }
+.dc { font: .85rem/1.45 system-ui, sans-serif; background: var(--bg); border-left: 3px solid var(--pin-approx); padding: 8px 12px; border-radius: 0 6px 6px 0; margin-bottom: 12px; }
+.qstep { min-height: 80vh; }
+.qcard { background: transparent; border: none; box-shadow: none; }
+blockquote.big { padding: 18px 20px; background: var(--panel); border-left-width: 5px; box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+blockquote.big p { font-size: 1.35rem; line-height: 1.5; }
+.textbeat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+.textbeat p { font-size: 1.12rem; line-height: 1.6; margin: 8px 0; }
+.textbeat cite { font: .72rem/1.4 system-ui, sans-serif; color: var(--muted); font-style: normal; }
+.textbeat cite a { color: var(--muted); }
+.imgfail { font: .85rem system-ui, sans-serif; background: var(--flag-bg); color: var(--flag-ink); padding: 10px; border-radius: 6px; }
+.cl a { color: var(--accent); }
+.cl h3 { font-size: 1.05rem; margin: 14px 0 4px; }
+.cl ul { margin: 0 0 10px; padding-left: 18px; font: .9rem/1.5 system-ui, sans-serif; }
+.app { border: 2px dashed var(--pin-approx); border-radius: 8px; padding: 12px; font: .9rem/1.5 system-ui, sans-serif; color: var(--muted); }
 .hint { font: .8rem system-ui, sans-serif; color: var(--muted); }
 .pin { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff; color: #fff; font: 600 .8rem system-ui, sans-serif; display: grid; place-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.45); transition: transform .3s; }
 .pin.on { transform: scale(1.35); box-shadow: 0 0 0 5px rgba(14,111,110,.3), 0 1px 6px rgba(0,0,0,.5); }
@@ -810,166 +824,569 @@ PINS.push({ n:17, name:"San Francisco, bound for Honolulu", island:"California",
   src:[["Cannon's journal, Nov 1850","https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/11-1850"],["Cannon, My First Mission (1879-80)","https://www.gutenberg.org/ebooks/45049"],["Church History: stories of faith","https://churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-01-greater-blessings-than-we-had-asked?lang=eng"],["Dialogue: After Sutter's Mill","https://www.dialoguejournal.com/articles/after-sutters-mill-the-life-of-henry-bigler-1848-1900/"]] });
 
 
-var IMAGES = {
- "1": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Honolulu%2C_1854.jpg?width=900",
-  "caption": "Honolulu harbor and waterfront, lithograph, 1854. A general view from the 1850s, not a picture of the landing.",
-  "credit": "Edward T. Perkins (lithograph, 1854)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Honolulu,_1854.jpg"
- },
- "2": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Nuuanu%2C_1854.jpg?width=900",
-  "caption": "Nuuanu, lithograph, 1854. A general view of the valley from the same decade. Not confirmed to show Kapena Falls or the altar.",
-  "credit": "Edward T. Perkins (lithograph, 1854)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Nuuanu,_1854.jpg"
- },
- "3": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Honolulu_from_steeple_of_Fort_Street_Church%2C_looking_up_Nuuanu_Valley%2C_c._1853.jpg?width=900",
-  "caption": "Honolulu looking toward Nuuanu Valley, about 1853, two years after the first baptism. The baptism site is unknown.",
-  "credit": "Hugo Stangenwald (photograph, c. 1853)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:View_of_Honolulu_from_steeple_of_Fort_Street_Church,_looking_up_Nuuanu_Valley,_c._1853.jpg"
- },
- "4": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Rear_View_of_Lahaina%2C_1854.jpg?width=900",
-  "caption": "Rear view of Lahaina, lithograph, 1854. A general view of the town, not the 1850 sermon.",
-  "credit": "Edward T. Perkins (lithograph, 1854)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Rear_View_of_Lahaina,_1854.jpg"
- },
- "6": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Waiakea_or_View_in_Hilo%2C_1854.jpg?width=900",
-  "caption": "Waiakea, Hilo, lithograph, 1854. A general view from the same decade.",
-  "credit": "Edward T. Perkins (lithograph, 1854)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Waiakea_or_View_in_Hilo,_1854.jpg"
- },
- "7": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jonathan_Napela%2C_1869%2C_photograph_taken_by_Charles_R._Savage.jpg?width=900",
-  "caption": "Jonathan Napela in 1869, about 15 years after the Wailuku translation work. A portrait, not the home.",
-  "credit": "Charles R. Savage (photograph, 1869)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Jonathan_Napela,_1869,_photograph_taken_by_Charles_R._Savage.jpg"
- },
- "8": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg?width=900",
-  "caption": "Wailuku and Iao Valley, oil painting by Edward Bailey (1814-1903). The painting is undated, so it may not show the 1850s town.",
-  "credit": "Edward Bailey (Bailey House Museum)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg"
- },
- "12": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Keanae.jpg?width=900",
-  "caption": "Keanae today. A modern photo, not from the mission period.",
-  "credit": "navin75 via Flickr, 2012",
-  "license": "CC BY-SA 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Keanae.jpg"
- },
- "15": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lahaina_and_Lahainaluna_from_the_Anchorage%2C_engraving_by_W._Roberts.jpg?width=900",
-  "caption": "Lahaina and Lahainaluna from the anchorage, engraving published in 1851. A general view, not Nalemanui's home.",
-  "credit": "W. Roberts (engraving, 1851)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Lahaina_and_Lahainaluna_from_the_Anchorage,_engraving_by_W._Roberts.jpg"
- },
- "16": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Laie_Hawaii_Temple_1921.jpg?width=900",
-  "caption": "The Laie Hawaii Temple in 1921. The temple stands on the old chapel site. This is not an 1850s image.",
-  "credit": "Btphelps (photograph, 1921)",
-  "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Laie_Hawaii_Temple_1921.jpg"
- },
- "17": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/SanFranciscoharbor1851c_sharp.jpg?width=900",
-  "caption": "San Francisco harbor at Yerba Buena Cove, 1850 or 1851, a daguerreotype from the Gold Rush. A general view of the anchorage, not a picture of the ship.",
-  "credit": "Unknown photographer (daguerreotype, c. 1850-51)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:SanFranciscoharbor1851c_sharp.jpg"
- },
- "5": {
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa%2C_Island_of_Kauai_by_Lossing-Barritt.jpg?width=900",
-  "caption": "Extinct volcanoes near Koloa, wood engraving published in 1854. A landscape near the town, not a picture of the meetings.",
-  "credit": "Benson J. Lossing and William Barritt, in G. W. Bates, Sandwich Island Notes (1854)",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa,_Island_of_Kauai_by_Lossing-Barritt.jpg"
- }
-};
+var IMAGES = {"1": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Honolulu%2C_1854.jpg?width=900", "caption": "Honolulu harbor and waterfront, lithograph, 1854. A general view from the 1850s, not a picture of the landing.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Honolulu,_1854.jpg"}, "2": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Edward_T._Perkins%2C_Nuuanu%2C_1854.jpg/960px-Edward_T._Perkins%2C_Nuuanu%2C_1854.jpg", "caption": "Nuuanu, lithograph, 1854. A general view of the valley from the same decade. Not confirmed to show Kapena Falls or the altar.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Nuuanu,_1854.jpg"}, "3": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Honolulu_from_steeple_of_Fort_Street_Church%2C_looking_up_Nuuanu_Valley%2C_c._1853.jpg?width=900", "caption": "Honolulu looking toward Nuuanu Valley, about 1853, two years after the first baptism. The baptism site is unknown.", "credit": "Hugo Stangenwald (photograph, c. 1853)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:View_of_Honolulu_from_steeple_of_Fort_Street_Church,_looking_up_Nuuanu_Valley,_c._1853.jpg"}, "4": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Rear_View_of_Lahaina%2C_1854.jpg?width=900", "caption": "Rear view of Lahaina, lithograph, 1854. A general view of the town, not the 1850 sermon.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Rear_View_of_Lahaina,_1854.jpg"}, "6": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Waiakea_or_View_in_Hilo%2C_1854.jpg?width=900", "caption": "Waiakea, Hilo, lithograph, 1854. A general view from the same decade.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Waiakea_or_View_in_Hilo,_1854.jpg"}, "7": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Jonathan_Napela%2C_1869%2C_photograph_taken_by_Charles_R._Savage.jpg/960px-Jonathan_Napela%2C_1869%2C_photograph_taken_by_Charles_R._Savage.jpg", "caption": "Jonathan Napela in 1869, about 15 years after the Wailuku translation work. A portrait, not the home.", "credit": "Charles R. Savage (photograph, 1869)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Jonathan_Napela,_1869,_photograph_taken_by_Charles_R._Savage.jpg"}, "8": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg/960px-Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg", "caption": "Wailuku and Iao Valley, oil painting by Edward Bailey (1814-1903). The painting is undated, so it may not show the 1850s town.", "credit": "Edward Bailey (Bailey House Museum)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg"}, "12": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Keanae.jpg?width=900", "caption": "Keanae today. A modern photo, not from the mission period.", "credit": "navin75 via Flickr, 2012", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Keanae.jpg"}, "15": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lahaina_and_Lahainaluna_from_the_Anchorage%2C_engraving_by_W._Roberts.jpg?width=900", "caption": "Lahaina and Lahainaluna from the anchorage, engraving published in 1851. A general view, not Nalemanui's home.", "credit": "W. Roberts (engraving, 1851)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Lahaina_and_Lahainaluna_from_the_Anchorage,_engraving_by_W._Roberts.jpg"}, "16": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Laie_Hawaii_Temple_1921.jpg/960px-Laie_Hawaii_Temple_1921.jpg", "caption": "The Laie Hawaii Temple in 1921. The temple stands on the old chapel site. This is not an 1850s image.", "credit": "Btphelps (photograph, 1921)", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Laie_Hawaii_Temple_1921.jpg"}, "17": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/SanFranciscoharbor1851c_sharp.jpg/960px-SanFranciscoharbor1851c_sharp.jpg", "caption": "San Francisco harbor at Yerba Buena Cove, 1850 or 1851, a daguerreotype from the Gold Rush. A general view of the anchorage, not a picture of the ship.", "credit": "Unknown photographer (daguerreotype, c. 1850-51)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:SanFranciscoharbor1851c_sharp.jpg"}, "5": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa%2C_Island_of_Kauai_by_Lossing-Barritt.jpg?width=900", "caption": "Extinct volcanoes near Koloa, wood engraving published in 1854. A landscape near the town, not a picture of the meetings.", "credit": "Benson J. Lossing and William Barritt, in G. W. Bates, Sandwich Island Notes (1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa,_Island_of_Kauai_by_Lossing-Barritt.jpg"}};
 
-var ORDER = [17, 1, 2, 4, 5, 6, 3, 7, 8, 15, 9, 11, 12, 10, 13, 14, 16];
+var PINS = [
+  { n:1, name:"Honolulu Harbor", island:"Oahu", lat:21.31, lng:-157.87, approx:true, date:"Dec 12, 1850",
+    story:"The ten elders reached Honolulu to open the first LDS mission to the Sandwich Islands: Hiram Clark, Henry Bigler, Hiram Blackwell, George Q. Cannon, John Dixon, William Farrer, James Hawkins, James Keeler, Thomas Morris and Thomas Whittle.",
+    flag:"No source names the wharf or first lodging. This pin marks the harbor area only.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"],["BYU RSC: Ten Pioneering Missionaries","https://rsc.byu.edu/go-ye-all-world/ten-pioneering-missionaries-sandwich-islands-1850-54"]] },
+  { n:2, name:"Kapena Falls and the altar", island:"Oahu", lat:21.33, lng:-157.84, approx:true, date:"Dec 13, 1850",
+    story:"The elders climbed Nuuanu Valley past King's Falls, carried stones up about 500 feet, built an altar, sang, and dedicated the islands. Hiram Clark prayed that the way would open.",
+    flag:"The exact altar site was never found. Pin position is rough.",
+    src:[["Deseret News: King's Falls","https://www.deseret.com/2017/12/13/20624247/picturing-history-events-at-king-s-falls-kapena-falls-oahu-hawaii-167-years-ago/"],["BYU RSC: Ten Pioneering Missionaries","https://rsc.byu.edu/go-ye-all-world/ten-pioneering-missionaries-sandwich-islands-1850-54"]] },
+  { n:3, name:"First Hawaiian baptism, Honolulu", island:"Oahu", lat:21.305, lng:-157.86, approx:true, date:"Feb 10, 1851",
+    story:"Hiram Clark baptized a Native Hawaiian youth of about 16, believed to be the first convert in the islands. His name is not in the mission records.",
+    flag:"Location within Honolulu is unknown.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"]] },
+  { n:4, name:"Lahaina", island:"Maui", lat:20.88, lng:-156.68, approx:true, date:"Dec 22, 1850",
+    story:"Henry Bigler preached the first Mormon sermon on Maui.",
+    flag:"The source implies Lahaina but is not explicit. The town was badly damaged by the August 2023 fire (my general knowledge, not from a fetched source).",
+    src:[["BYU RSC: Ten Pioneering Missionaries","https://rsc.byu.edu/go-ye-all-world/ten-pioneering-missionaries-sandwich-islands-1850-54"]] },
+  { n:5, name:"Koloa", island:"Kauai", lat:21.91, lng:-159.47, approx:true, date:"Dec 23, 1850 to about Jan 1851",
+    story:"John Dixon and William Farrer reached Kauai on Dec 21, sailed to Koloa two days later, and held meetings for about three weeks.",
+    flag:"Town-level pin only.",
+    src:[["BYU RSC: Ten Pioneering Missionaries","https://rsc.byu.edu/go-ye-all-world/ten-pioneering-missionaries-sandwich-islands-1850-54"]] },
+  { n:6, name:"Hilo", island:"Hawaii Island", lat:19.72, lng:-155.09, approx:true, date:"Dec 1850 to Feb 1, 1851",
+    story:"Hiram Blackwell and James Hawkins worked briefly in Hilo. Blackwell sailed for Lahaina on Feb 1, 1851 and left the islands. Hawkins stayed alone.",
+    flag:"Town-level pin only.",
+    src:[["BYU RSC: Ten Pioneering Missionaries","https://rsc.byu.edu/go-ye-all-world/ten-pioneering-missionaries-sandwich-islands-1850-54"]] },
+  { n:7, name:"Napela's home, Wailuku", island:"Maui", lat:20.89, lng:-156.50, approx:true, date:"Mar 8, 1851 to 1854",
+    story:"Cannon came into Jonathan Napela's house on Mar 8, 1851. The home became a gathering place, the site of the Book of Mormon translation into Hawaiian, and the first missionary language program (Apr 1853).",
+    flag:"Translation start is Jan 1852 in the chronology but 1854 in another source. Whether the house still stands is not stated.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"],["BYU RSC: Cannon in Hawaii","https://rsc.byu.edu/pioneers-pacific/george-q-cannon-hawaii-1850-54-relationship-challenges-young-missionary"]] },
+  { n:8, name:"Wailuku meetinghouse", island:"Maui", lat:20.893, lng:-156.505, approx:true, date:"Mar 30, 1851",
+    story:"After a sermon, Cannon confronted Rev. Daniel Toll Conde at the Wailuku meetinghouse. A branch was established in Wailuku in Dec 1851.",
+    flag:"Position is a guess placed next to pin 7.",
+    src:[["BYU RSC: Cannon in Hawaii","https://rsc.byu.edu/pioneers-pacific/george-q-cannon-hawaii-1850-54-relationship-challenges-young-missionary"]] },
+  { n:9, name:"Kealahou (Kealakou), Kula", island:"Maui", lat:20.79, lng:-156.33, approx:true, date:"Aug 6, 1851",
+    story:"Cannon organized the first branch of the Church in Hawaii in the Kula area.",
+    flag:"Spelled Kealahou in one source and Kealakou in another. One source says the first branch was at Pulehu instead.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"],["BYU RSC Appendix 2","https://rsc.byu.edu/sites/default/files/pub_content/pdf/Appendix_2_2.pdf"]] },
+  { n:10, name:"Pulehu, Kula", island:"Maui", lat:20.80, lng:-156.37, approx:true, date:"1852 meetinghouse",
+    story:"The first Church meetinghouse in Hawaii was built here in 1852. One source says a small wooden chapel still stands on the site.",
+    flag:"Regular meetings reportedly no longer held and public access is not stated. Position is rough.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"],["Latter-day Saint Magazine","https://latterdaysaintmag.com/the-sacred-history-of-the-church-in-hawaii/"]] },
+  { n:11, name:"Honomanu", island:"Maui", lat:20.86, lng:-156.20, approx:true, date:"Aug 18, 1851",
+    story:"A conference was held here with branches organized at Keanae, Wailua, Waianu and Honomanu. Membership stood at 220, with 196 on Maui.",
+    flag:"Position is rough.",
+    src:[["BYU RSC Appendix 2","https://rsc.byu.edu/sites/default/files/pub_content/pdf/Appendix_2_2.pdf"]] },
+  { n:12, name:"Keanae", island:"Maui", lat:20.86, lng:-156.14, approx:true, date:"Aug and Oct 1851",
+    story:"Four branches formed in the Keanae area within two weeks of Aug 6, 1851. In October Cannon sought permission to build a meetinghouse here, where most of his converts lived.",
+    flag:"Area pin covering Keanae, Wailua and Waianu.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"],["BYU RSC: Cannon in Hawaii","https://rsc.byu.edu/pioneers-pacific/george-q-cannon-hawaii-1850-54-relationship-challenges-young-missionary"]] },
+  { n:13, name:"Palawai Basin, City of Joseph", island:"Lanai", lat:20.80, lng:-156.93, approx:true, date:"Oct 3, 1854",
+    story:"A provisional gathering place for Hawaiian Saints, on land leased from Chief Levi Haalelea. About 300 Saints lived here. Walter Murray Gibson took control of the land and was excommunicated on Apr 7, 1864. A 2004 marker stands about three miles south of Lanai City.",
+    flag:"Position is rough. The marker is on Castle & Cooke land and access is not stated, so confirm before visiting.",
+    src:[["Ensign Peak Foundation: Palawai","https://ensignpeakfoundation.org/sesquicentennial-commemoration-palawai-basin-lanai-hawaii-2004/"],["BYU RSC: A Gathering Place in Laie","https://rsc.byu.edu/laie-hawaii-temple-century-aloha/gathering-place-laie"]] },
+  { n:14, name:"Laie, the new gathering place", island:"Oahu", lat:21.652, lng:-157.935, approx:true, date:"Jan 26, 1865",
+    story:"The Church bought more than 6,000 acres at Laie as a new gathering place after the Lanai failure. The land now holds the Hawaii Temple, BYU-Hawaii and the Polynesian Cultural Center.",
+    flag:"Buyer, seller, acreage and exact date vary by source, so the story says only early 1865.",
+    src:[["Church History chronology","https://churchofjesuschrist.org/study/history/global-histories/hawaii/hi-chronology"],["BYU RSC: A Gathering Place in Laie","https://rsc.byu.edu/laie-hawaii-temple-century-aloha/gathering-place-laie"],["Ensign Peak Foundation: Laie","https://ensignpeakfoundation.org/laie-sugar-plantation"]] },
+  { n:15, name:"Nalemanui's home, Lahaina", island:"Maui", lat:20.873, lng:-156.675, approx:true, date:"Undated, 1850-54",
+    story:"Cannon had a deeply spiritual experience at the home of Nalemanui, near the north end of the Old Prison.",
+    flag:"Undated, single source, and the site is rough. Check Lahaina's current condition before calling it visitable.",
+    src:[["Latter-day Saint Magazine","https://latterdaysaintmag.com/the-sacred-history-of-the-church-in-hawaii/"]] },
+  { n:16, name:"Laie Hawaii Temple", island:"Oahu", lat:21.649949, lng:-157.928284, approx:false, date:"Site of the old Laie chapel",
+    story:"Anchor for the Laie gathering place. A chapel built on the new land stood until temple construction began in 1915, and its location later became the temple site. Grounds admission is listed as free.",
+    flag:"This is the only coordinate taken from a source. The 1865 chapel build date is an inference.",
+    src:[["Ensign Peak Foundation: Laie","https://ensignpeakfoundation.org/laie-sugar-plantation"],["BYU RSC: A Gathering Place in Laie","https://rsc.byu.edu/laie-hawaii-temple-century-aloha/gathering-place-laie"]] }
+];
+PINS.push({ n:17, name:"San Francisco, bound for Honolulu", island:"California", lat:37.80, lng:-122.40, approx:true, date:"Nov 22, 1850",
+  story:"Ten elders who had been working the California gold fields were called by Apostle Charles C. Rich in September 1850 to spend the winter in the Sandwich Islands. Mission president Hiram Clark joined them in San Francisco on Nov 8. They booked passage between decks on the English ship Imaum of Muscat, bound for the East Indies by way of Honolulu, and sailed through the Golden Gate on Nov 22.",
+  flag:"The sailing date comes from Bigler's 1896 retelling and the Church History site. Sources give the voyage as 20 days by the dates, but Cannon later wrote nearly four weeks. The captain's name is spelled Ritches and Riches. Whether all ten came from the gold fields is not confirmed. The pin marks the harbor area only.",
+  src:[["Cannon's journal, Nov 1850","https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/11-1850"],["Cannon, My First Mission (1879-80)","https://www.gutenberg.org/ebooks/45049"],["Church History: stories of faith","https://churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-01-greater-blessings-than-we-had-asked?lang=eng"],["Dialogue: After Sutter's Mill","https://www.dialoguejournal.com/articles/after-sutters-mill-the-life-of-henry-bigler-1848-1900/"]] });
 
-var CJ = "https://www.churchhistorianspress.org/george-q-cannon/1850s/";
-var MEM = "https://www.gutenberg.org/ebooks/45049";
-var QUOTES = {
-  17: [
-    { t: "I thought that I spoke to him and said that I wished I was in possession of such Faith and he replied that it was my privilege and that I ought to have it", w: "Cannon's journal, Nov 22, 1850, describing a dream of Joseph Smith praying at an anchor", u: CJ + "1850/11-1850" },
-    { t: "I crawled out of my berth and went on deck but soon had to go below to vomit.", w: "Cannon's journal, Nov 23, 1850", u: CJ + "1850/11-1850" },
-    { t: "we succeeded in obtaining a passage between decks on the good ship Imaum of Muscat, Captain Ritches, commander.", w: "Cannon, My First Mission (a memoir written in 1879-80)", u: MEM }
-  ],
-  1: [
-    { t: "after rounding a point we came in sight of Honolulu and the shipping; the town is built upon an extensive flat of great fertility", w: "Cannon's journal, Dec 12, 1850", u: CJ + "1850/12-1850" }
-  ],
-  2: [
-    { t: "we turned off to some falls [Kapena Falls] to the right to wash our bodies; it was a fine place to swim in and very deep", w: "Cannon's journal, Dec 13, 1850 (brackets are the editors')", u: CJ + "1850/12-1850" },
-    { t: "we then made an altar of our stones and sung a hymn and then all spoke round what our desires were", w: "Cannon's journal, Dec 13, 1850 (the editors' insertion marks removed)", u: CJ + "1850/12-1850" },
-    { t: "We had the spirit with us I could feel it very sensibly.", w: "Cannon's journal, Dec 13, 1850", u: CJ + "1850/12-1850" }
-  ],
-  4: [
-    { t: "I wrote out a notice for him to give out, for a meeting in the afternoon.", w: "Cannon's journal, Dec 22, 1850, after Rev. Taylor agreed to announce a meeting", u: CJ + "1850/12-1850" }
-  ],
-  7: [
-    { t: "he asked where I was going and if I had eaten. I told him not.", w: "Cannon's journal, Mar 8, 1851, arriving in Wailuku", u: CJ + "1851/03-1851" }
-  ],
-  8: [
-    { t: "He said there were five of these men [who] had come to these Islands and he warned the people to beware of them.", w: "Cannon's journal, Mar 30, 1851, describing Rev. Conde's sermon", u: CJ + "1851/03-1851" }
-  ],
-  15: [
-    { t: "I rode in a stranger in the midst of strangers", w: "Cannon's journal, Aug 7, 1851, arriving in Lahaina", u: CJ + "1851/08-1851" },
-    { t: "upon riding up to the house of Nalimanui by the warm reception I met with from the folks", w: "Cannon's journal, Aug 7, 1851", u: CJ + "1851/08-1851" }
-  ],
-  9: [
-    { t: "Met according to appointment—I was blessed with considerable of the spirit", w: "Cannon's journal, Aug 6, 1851", u: CJ + "1851/08-1851" },
-    { t: "There were two ordained teachers—Bro. Kaleohano and Bro. Maiola—There were three deacons ordained", w: "Cannon's journal, Aug 6, 1851", u: CJ + "1851/08-1851" }
-  ],
-  11: [
-    { t: "To day had been appointed for a conference to organise the branches", w: "Cannon's journal, Aug 18, 1851", u: CJ + "1851/08-1851" }
-  ],
-  12: [
-    { t: "After two weeks' absence, I returned to Keanae, and we organized four branches of the Church in that region.", w: "Cannon, My First Mission (a memoir written in 1879-80)", u: MEM }
+
+var IMAGES = {"1": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Honolulu%2C_1854.jpg?width=900", "caption": "Honolulu harbor and waterfront, lithograph, 1854. A general view from the 1850s, not a picture of the landing.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Honolulu,_1854.jpg"}, "2": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Edward_T._Perkins%2C_Nuuanu%2C_1854.jpg/960px-Edward_T._Perkins%2C_Nuuanu%2C_1854.jpg", "caption": "Nuuanu, lithograph, 1854. A general view of the valley from the same decade. Not confirmed to show Kapena Falls or the altar.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Nuuanu,_1854.jpg"}, "3": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Honolulu_from_steeple_of_Fort_Street_Church%2C_looking_up_Nuuanu_Valley%2C_c._1853.jpg?width=900", "caption": "Honolulu looking toward Nuuanu Valley, about 1853, two years after the first baptism. The baptism site is unknown.", "credit": "Hugo Stangenwald (photograph, c. 1853)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:View_of_Honolulu_from_steeple_of_Fort_Street_Church,_looking_up_Nuuanu_Valley,_c._1853.jpg"}, "4": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Rear_View_of_Lahaina%2C_1854.jpg?width=900", "caption": "Rear view of Lahaina, lithograph, 1854. A general view of the town, not the 1850 sermon.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Rear_View_of_Lahaina,_1854.jpg"}, "6": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_T._Perkins%2C_Waiakea_or_View_in_Hilo%2C_1854.jpg?width=900", "caption": "Waiakea, Hilo, lithograph, 1854. A general view from the same decade.", "credit": "Edward T. Perkins (lithograph, 1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_T._Perkins,_Waiakea_or_View_in_Hilo,_1854.jpg"}, "7": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Jonathan_Napela%2C_1869%2C_photograph_taken_by_Charles_R._Savage.jpg/960px-Jonathan_Napela%2C_1869%2C_photograph_taken_by_Charles_R._Savage.jpg", "caption": "Jonathan Napela in 1869, about 15 years after the Wailuku translation work. A portrait, not the home.", "credit": "Charles R. Savage (photograph, 1869)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Jonathan_Napela,_1869,_photograph_taken_by_Charles_R._Savage.jpg"}, "8": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg/960px-Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg", "caption": "Wailuku and Iao Valley, oil painting by Edward Bailey (1814-1903). The painting is undated, so it may not show the 1850s town.", "credit": "Edward Bailey (Bailey House Museum)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Edward_Bailey_painting_of_Wailuku_and_Iao_Valley.jpg"}, "12": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Keanae.jpg?width=900", "caption": "Keanae today. A modern photo, not from the mission period.", "credit": "navin75 via Flickr, 2012", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Keanae.jpg"}, "15": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lahaina_and_Lahainaluna_from_the_Anchorage%2C_engraving_by_W._Roberts.jpg?width=900", "caption": "Lahaina and Lahainaluna from the anchorage, engraving published in 1851. A general view, not Nalemanui's home.", "credit": "W. Roberts (engraving, 1851)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Lahaina_and_Lahainaluna_from_the_Anchorage,_engraving_by_W._Roberts.jpg"}, "16": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Laie_Hawaii_Temple_1921.jpg/960px-Laie_Hawaii_Temple_1921.jpg", "caption": "The Laie Hawaii Temple in 1921. The temple stands on the old chapel site. This is not an 1850s image.", "credit": "Btphelps (photograph, 1921)", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Laie_Hawaii_Temple_1921.jpg"}, "17": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/SanFranciscoharbor1851c_sharp.jpg/960px-SanFranciscoharbor1851c_sharp.jpg", "caption": "San Francisco harbor at Yerba Buena Cove, 1850 or 1851, a daguerreotype from the Gold Rush. A general view of the anchorage, not a picture of the ship.", "credit": "Unknown photographer (daguerreotype, c. 1850-51)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:SanFranciscoharbor1851c_sharp.jpg"}, "5": {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa%2C_Island_of_Kauai_by_Lossing-Barritt.jpg?width=900", "caption": "Extinct volcanoes near Koloa, wood engraving published in 1854. A landscape near the town, not a picture of the meetings.", "credit": "Benson J. Lossing and William Barritt, in G. W. Bates, Sandwich Island Notes (1854)", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:View_of_a_Chain_of_Extinct_Volcanoes_Near_Koloa,_Island_of_Kauai_by_Lossing-Barritt.jpg"}};
+var STORIES = [
+ {
+  "n": 1,
+  "title": "The call at the gold mine",
+  "date": "Sept 1850",
+  "place": "American River gold country, California",
+  "lat": 38.8,
+  "lng": -121.0,
+  "zoom": 8,
+  "approx": true,
+  "pin": null,
+  "text": "Apostle Charles C. Rich visits the miners' camp at Slapjack Bar and tells ten of them to spend the winter in the Sandwich Islands. Henry Bigler later wrote that the turn of events was for their best good.",
+  "quotes": [],
+  "flag": "",
+  "src": [
+   [
+    "Dialogue: After Sutter's Mill",
+    "https://www.dialoguejournal.com/articles/after-sutters-mill-the-life-of-henry-bigler-1848-1900/"
+   ],
+   [
+    "Church News, 2014",
+    "https://www.thechurchnews.com/2014/6/21/23223304/george-q-cannon-and-the-hawaiian-mission-beginnings"
+   ]
   ]
-};
+ },
+ {
+  "n": 2,
+  "title": "Leaving San Francisco",
+  "date": "Nov 22, 1850",
+  "place": "San Francisco Bay",
+  "lat": 37.8,
+  "lng": -122.4,
+  "zoom": 9,
+  "approx": true,
+  "pin": 17,
+  "img": "17",
+  "text": "The ten sail out of San Francisco bound for Honolulu on the Imaum of Muscat. Cannon is seasick the next day, and William Farrer writes of clearing the harbor in the dark with breakers close ahead.",
+  "quotes": [
+   {
+    "t": "we succeeded in obtaining a passage between decks on the good ship Imaum of Muscat, Captain Ritches, commander.",
+    "w": "Cannon, My First Mission (a memoir written in 1879-80)",
+    "u": "https://www.gutenberg.org/ebooks/45049"
+   },
+   {
+    "t": "we had a fine time all round ... all sick at the same time ... we had to tack very frequently and we were in a very critical situation, the Pilot had left the Vessel when he was most needed the Captain knew nothing about the coast and it was so dark, that nothing could be seen any distance ahead.",
+    "w": "William Farrer's diary, vol. 1, p. 63, leaving San Francisco (my reading of the handwriting)",
+    "u": "https://contentdm.lib.byu.edu/digital/collection/MMD/id/4527"
+   },
+   {
+    "t": "They had watch a head and a lantern hung out to give the vessels light that we might not be run into; there were a good many came out the same tide we did. In the middle of our scrape below we heard the Mate shouting to the Captain that there were breakers ahead and we were close on them; this at any other time might have startled us but we were so sick that we did not mind it",
+    "w": "William Farrer's diary, vol. 1, p. 63-64 (my reading of the handwriting)",
+    "u": "https://contentdm.lib.byu.edu/digital/collection/MMD/id/4527"
+   },
+   {
+    "t": "I crawled out of my berth and went on deck but soon had to go below to vomit.",
+    "w": "Cannon's journal, Nov 23, 1850",
+    "u": "https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/11-1850"
+   }
+  ],
+  "flag": "",
+  "src": [
+   [
+    "Cannon's journal, Nov 1850",
+    "https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/11-1850"
+   ],
+   [
+    "Farrer diary, vol. 1 (BYU scans)",
+    "https://contentdm.lib.byu.edu/digital/collection/MMD/id/4527"
+   ],
+   [
+    "Church History: Greater Blessings",
+    "https://www.churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-01-greater-blessings-than-we-had-asked?lang=eng"
+   ]
+  ],
+  "transit": true
+ },
+ {
+  "n": 3,
+  "title": "The altar above Honolulu",
+  "date": "Dec 13, 1850",
+  "place": "Nuuanu Valley, Honolulu (Kapena Falls)",
+  "pin": 2,
+  "img": "2",
+  "zoom": 12,
+  "text": "The ten bathe at the falls, carry a stone each up a steep knob, build an altar, sing, and share their feelings about the mission. Clark offers the prayer that dedicates the islands. Dixon speaks in tongues and Hawkins interprets.",
+  "quotes": [
+   {
+    "t": "we turned off to some falls [Kapena Falls] to the right to wash our bodies; it was a fine place to swim in and very deep",
+    "w": "Cannon's journal, Dec 13, 1850 (brackets are the editors')",
+    "u": "https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/12-1850"
+   },
+   {
+    "t": "there each of us carried a stone ... we then sung a Hymn and each one then expressed his feelings and desires in regard to the mission we are now on. Bro. Clark then offered up a prayer to the Lord",
+    "w": "William Farrer's diary, vol. 1, p. 74, at the knoll above Honolulu (my reading of the handwriting)",
+    "u": "https://contentdm.lib.byu.edu/digital/collection/MMD/id/4527"
+   },
+   {
+    "t": "that he would open the way that we might be enabled to preach the Gospel on these Islands, and that we might have his Spirit to be with us at all times to guide us in the way of truth and be preserved from the powers of the adversary and from every evil, and that the honest in heart might embrace the truth when they heard it; and that all who should oppose the truth might be confounded.",
+    "w": "William Farrer's diary, vol. 1, p. 75, the prayer continues (my reading of the handwriting)",
+    "u": "https://contentdm.lib.byu.edu/digital/collection/MMD/id/4527"
+   },
+   {
+    "t": "We had the spirit with us I could feel it very sensibly.",
+    "w": "Cannon's journal, Dec 13, 1850",
+    "u": "https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/12-1850"
+   }
+  ],
+  "flag": "Cannon's journal places the falls on the way up Nuuanu Valley and its editors identify them as Kapena Falls. The altar's exact hilltop was never found, so the pin is rough.",
+  "src": [
+   [
+    "Cannon's journal, Dec 1850",
+    "https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/12-1850"
+   ],
+   [
+    "Farrer diary, vol. 1 (BYU scans)",
+    "https://contentdm.lib.byu.edu/digital/collection/MMD/id/4527"
+   ],
+   [
+    "Cannon, My First Mission",
+    "https://www.gutenberg.org/ebooks/45049"
+   ],
+   [
+    "Deseret News on Kapena Falls",
+    "https://www.deseret.com/2017/12/13/20624247/picturing-history-events-at-king-s-falls-kapena-falls-oahu-hawaii-167-years-ago/"
+   ]
+  ]
+ },
+ {
+  "n": 4,
+  "title": "Fasting for the language",
+  "date": "Feb 10-11, 1851",
+  "place": "Maui (the journal does not name the place)",
+  "lat": 20.8,
+  "lng": -156.35,
+  "zoom": 9,
+  "approx": true,
+  "pin": null,
+  "text": "The elders propose a fast and prayer for the gift of the language. Cannon climbs a mountain and spends the day singing and praying. Farrer says plainly that the learning is slow.",
+  "quotes": [
+   {
+    "t": "Still continue studying the language it appears a up hill job.",
+    "w": "William Farrer's diary, Feb 19, 1851, as quoted in BYU's essay on him",
+    "u": "https://lib.byu.edu/collections/mormon-missionary-diaries/about/diarists/william-farrer/"
+   }
+  ],
+  "flag": "Cannon's entry does not name the place, so the dot only shows Maui. Nobody on this mission could yet preach in Hawaiian.",
+  "src": [
+   [
+    "Cannon's journal, Feb 1851",
+    "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/02-1851"
+   ],
+   [
+    "Farrer diary essay, BYU",
+    "https://lib.byu.edu/collections/mormon-missionary-diaries/about/diarists/william-farrer/"
+   ]
+  ]
+ },
+ {
+  "n": 5,
+  "title": "Cannon meets Napela",
+  "date": "Mar 8, 1851",
+  "place": "Wailuku, Maui",
+  "pin": 7,
+  "img": "8",
+  "zoom": 12,
+  "text": "Four days after leaving his home in Lahaina, Cannon is walking Maui's coast, sure that the Lord has people prepared to hear him.",
+  "quotes": [],
+  "flag": "",
+  "src": [
+   [
+    "Saints, ch. 10: Truth and Righteousness",
+    "https://www.churchofjesuschrist.org/study/history/saints-v2/part-1/10-truth-and-righteousness?lang=eng"
+   ],
+   [
+    "Cannon's journal, Mar 1851",
+    "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/03-1851"
+   ]
+  ],
+  "items": [
+   {
+    "text": true,
+    "t": "Cannon left Lahaina on foot to find the people the Lord had told him were prepared to receive the gospel. He did not know who they were. Crossing 'Iao Stream on Mar 8, 1851 he slipped and fell in, then climbed the hill to the small town of Wailuku. He started for home, stopped to change his shirt and shave, and suddenly felt impressed to go back.",
+    "w": "Saints, vol. 2, ch. 10",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-1/10-truth-and-righteousness?lang=eng"
+   },
+   {
+    "t": "he asked where I was going and if I had eaten. I told him not.",
+    "w": "Cannon's journal, Mar 8, 1851, arriving in Wailuku",
+    "u": "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/03-1851"
+   },
+   {
+    "text": true,
+    "t": "Two women called out from a house by the churchyard, and Cannon was invited in. The man there was Jonathan Napela, a respected judge and one of the island's nobility, with two other educated men, William Uaua and H. K. Kaleohano. Cannon knew at once that he had found the people God had prepared.",
+    "w": "Saints, vol. 2, ch. 10",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-1/10-truth-and-righteousness?lang=eng"
+   },
+   {
+    "t": "We do not take the Book of Mormon for the Bible, but prove one by the other.",
+    "w": "Cannon to Napela the next day, as quoted in Saints, vol. 2, ch. 10",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-1/10-truth-and-righteousness?lang=eng"
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "title": "The first branch",
+  "date": "Aug 6, 1851",
+  "place": "Kula, Maui",
+  "pin": 9,
+  "zoom": 11,
+  "text": "Cannon organizes the first branch: Kaleohano as clerk, Kaleohano and Maiola as teachers, and Pake, Kahiki and Mahoe as deacons.",
+  "quotes": [
+   {
+    "t": "Met according to appointment—I was blessed with considerable of the spirit",
+    "w": "Cannon's journal, Aug 6, 1851",
+    "u": "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/08-1851"
+   },
+   {
+    "t": "There were two ordained teachers—Bro. Kaleohano and Bro. Maiola—There were three deacons ordained",
+    "w": "Cannon's journal, Aug 6, 1851",
+    "u": "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/08-1851"
+   }
+  ],
+  "flag": "",
+  "src": [
+   [
+    "Cannon's journal, Aug 1851",
+    "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/08-1851"
+   ],
+   [
+    "Cannon, My First Mission",
+    "https://www.gutenberg.org/ebooks/45049"
+   ]
+  ]
+ },
+ {
+  "n": 8,
+  "title": "A note from Lahaina",
+  "date": "Aug 18, 1851",
+  "place": "Maui, windward coast",
+  "pin": 11,
+  "zoom": 11,
+  "text": "At a conference to organize the branches, Cannon learns that three more missionaries (Lewis, Hammond, Woodbury) have been sent to the islands. He writes of a delight that cannot be described.",
+  "quotes": [],
+  "flag": "",
+  "src": [
+   [
+    "Cannon's journal, Aug 1851",
+    "https://www.churchhistorianspress.org/george-q-cannon/1850s/1851/08-1851"
+   ]
+  ]
+ },
+ {
+  "n": 9,
+  "title": "Translating the Book of Mormon",
+  "date": "1852 on",
+  "place": "Napela's home, Wailuku",
+  "pin": 7,
+  "img": "7",
+  "zoom": 12,
+  "text": "Napela waits almost a year after meeting Cannon before he is baptized, in January 1852. Then the two begin translating the Book of Mormon into Hawaiian.",
+  "quotes": [],
+  "flag": "The portrait is from 1869, about 15 years after the translation work. It is a portrait, not the home.",
+  "src": [
+   [
+    "Saints, ch. 11: A Glorious Privilege",
+    "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/11-a-glorious-privilege?lang=eng"
+   ],
+   [
+    "Farrer diary essay, BYU",
+    "https://lib.byu.edu/collections/mormon-missionary-diaries/about/diarists/william-farrer/"
+   ]
+  ],
+  "items": [
+   {
+    "text": true,
+    "t": "It took until January 1852 for Napela to accept baptism. He knew the gospel was true, but opposition from the community and the local Protestant church held him back. Cannon, meanwhile, had baptized many people and organized four branches on Maui.",
+    "w": "Saints, vol. 2, ch. 11",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/11-a-glorious-privilege?lang=eng"
+   },
+   {
+    "text": true,
+    "t": "Soon after Napela's baptism, Cannon began translating. He studied passages from the Book of Mormon, wrote out a Hawaiian version, and read it to Napela, a well-educated lawyer who helped him refine it. At first it went slowly. Then they felt the Spirit rest over them and worked quickly, and Cannon's Hawaiian improved every day as Napela taught him new words.",
+    "w": "Saints, vol. 2, ch. 11",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/11-a-glorious-privilege?lang=eng"
+   },
+   {
+    "t": "Busily engaged in writing.",
+    "w": "Cannon's journal, Nov 8, 1852, as quoted in Saints, vol. 2, ch. 11. He spent that day at a table in the Napela home and asked the Lord to help him finish.",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/11-a-glorious-privilege?lang=eng"
+   },
+   {
+    "t": "commenced to translate Bro. O. Pratts pamphlet on the coming forth of the Book of Mormon into the native language",
+    "w": "William Farrer's diary, June 14, 1852, as quoted in BYU's essay on him",
+    "u": "https://lib.byu.edu/collections/mormon-missionary-diaries/about/diarists/william-farrer/"
+   }
+  ]
+ },
+ {
+  "n": 10,
+  "title": "\"Our prophet, Walter M. Gibson\"",
+  "date": "1853 to 1864",
+  "place": "Lanai",
+  "pin": 13,
+  "zoom": 10,
+  "text": "On Oct 19, 1853 Napela and the missionaries sail to Lanai to find a place where the Saints can gather in peace. On the rough, oar-powered trip back the missionaries grow seasick, Napela prays for wind, and it picks up. In 1854 the Hawaiian Saints build their own Zion on the Palawai Basin and call captains of companies, as in D&C 136. Then a missionary named Walter Gibson arrives.",
+  "quotes": [],
+  "dc": "D&C 136 (captains of companies): the Church History page ties the Palawai captains to this revelation.",
+  "flag": "The Palawai site is a rough guess. Saints says the six members wrote to Alma Smith; Church History says they wrote to a former missionary.",
+  "src": [
+   [
+    "Church History: Gathering in Lanai and Laie",
+    "https://www.churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-02-gathering-in-lanai-and-laie?lang=eng"
+   ],
+   [
+    "Saints, ch. 22: Like Coals of Living Fire",
+    "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   ]
+  ],
+  "items": [
+   {
+    "text": true,
+    "t": "Walter Gibson was a well-known adventurer. The First Presidency sent him in 1861 on a mission to Japan and other lands in Asia and the Pacific, but he wrote that he had settled with the Saints on Lanai. On Lanai he persuaded the Hawaiian Saints to donate their livestock and property so he could buy land. He bought it in his own name and then told them it belonged to him alone. He dreamed of a Pacific empire and drilled a militia.",
+    "w": "Saints, vol. 2, ch. 22",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   },
+   {
+    "t": "The matter that we wish to write to you about is concerning our prophet living here, Walter M. Gibson. Is it true that he is our leader?",
+    "w": "Six Hawaiian Saints to Alma Smith, Jan 1864, as quoted in Saints, vol. 2, ch. 22",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   },
+   {
+    "text": true,
+    "t": "Brigham Young read the letter to the Quorum of the Twelve on January 17, 1864. He sent two apostles, Ezra Benson and Lorenzo Snow, with three former Hawaii missionaries, Alma Smith, Joseph F. Smith and William Cluff, to set the Church in order.",
+    "w": "Saints, vol. 2, ch. 22",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   },
+   {
+    "t": "This document does not appoint you to preside over the Hawaiian mission. You have assumed that authority.",
+    "w": "Lorenzo Snow to Gibson on Lanai, as quoted in Saints, vol. 2, ch. 22",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   },
+   {
+    "t": "I am your patriarch. These men have come to take your land and send your earnings away. Is this love? Who loves you? Is it not I?",
+    "w": "Gibson to the Hawaiian Saints, as quoted in Saints, vol. 2, ch. 22",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   },
+   {
+    "text": true,
+    "t": "The missionaries could not legally recover the land. Gibson was excommunicated in 1864, and many Saints left Lanai with little more than the clothes on their backs. Napela had presided over Gibson's twelve \"apostles\" for two years. He felt deceived when he learned Gibson never had the authority to ordain him.",
+    "w": "Saints, vol. 2, ch. 22; Church History, Gathering in Lanai and Laie",
+    "u": "https://www.churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-02-gathering-in-lanai-and-laie?lang=eng"
+   },
+   {
+    "t": "We were deceived and led away by Gibson's cunning words and thereby have broken the sacred covenants we had made. But we are now undeceived; therefore, let us renew our covenants and be faithful.",
+    "w": "Jonathan Napela at a mission conference in Honolulu, as quoted in Saints, vol. 2, ch. 22",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/22-like-coals-of-living-fire?lang=eng"
+   }
+  ]
+ },
+ {
+  "n": 11,
+  "title": "The gathering place at Laie",
+  "date": "1865 to about 1872",
+  "place": "Laie, Oahu",
+  "pin": 14,
+  "img": "16",
+  "zoom": 12,
+  "text": "After Gibson, the Saints choose Laie as the new gathering place. About 400 Saints live year-round there with a chapel, a school and a farm. Under Napela's direction, local missionaries have baptized more than 600 people.",
+  "quotes": [],
+  "dc": "D&C 115:6, \"a refuge from the storm\": the Church History page cites it for the choice of Laie.",
+  "flag": "The photo shows the temple in 1921, built decades after this story. It stands on the old chapel site. The 1865 pin is approximate.",
+  "src": [
+   [
+    "Church History: Gathering in Lanai and Laie",
+    "https://www.churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-02-gathering-in-lanai-and-laie?lang=eng"
+   ],
+   [
+    "Saints, ch. 27: Fire in the Dry Grass",
+    "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   ],
+   [
+    "BYU RSC: A Gathering Place in Laie",
+    "https://rsc.byu.edu/laie-hawaii-temple-century-aloha/gathering-place-laie"
+   ]
+  ],
+  "items": [
+   {
+    "text": true,
+    "t": "About seven years after Laie became the gathering place, Saints from across Hawaii came to a conference there. Thirteen local missionaries testified. Under Napela, who had been called to oversee the preaching on the islands, they had baptized more than 600 people, and the Church in Hawaii was well over 2,000.",
+    "w": "Saints, vol. 2, ch. 27",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   },
+   {
+    "text": true,
+    "t": "Afterward Napela and H. K. Kaleohano were asked to pray for King Kamehameha V, who was close to death. The king recovered somewhat and told them that people in the government had pressed him to stop the Saints from preaching. He had refused, because Hawaii's constitution granted religious liberty.",
+    "w": "Saints, vol. 2, ch. 27",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   },
+   {
+    "t": "Don't you forget these kings.",
+    "w": "King Kamehameha V, pointing to Napela and Kaleohano, as quoted in Saints, vol. 2, ch. 27",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "title": "Napela at Kalaupapa",
+  "date": "Jan 1878",
+  "place": "Kalaupapa, Molokai",
+  "lat": 21.19,
+  "lng": -156.98,
+  "zoom": 11,
+  "approx": true,
+  "pin": null,
+  "text": "Napela, who has followed his wife Kitty into exile with leprosy, still leads 78 Saints in two branches.",
+  "quotes": [],
+  "flag": "The dot marks the Kalaupapa peninsula, not a specific building.",
+  "src": [
+   [
+    "Saints, ch. 27: Fire in the Dry Grass",
+    "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   ],
+   [
+    "Saints, ch. 30: A Steady Onward Movement",
+    "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/30-a-steady-onward-movement?lang=eng"
+   ]
+  ],
+  "items": [
+   {
+    "text": true,
+    "t": "When Kitty Napela was ordered to the leprosy colony on Kalaupapa, Napela took a job there as assistant supervisor so he would not have to leave her. They arrived in spring 1873. He began holding Sunday meetings with Saints who had leprosy and became friends with Father Damien, the Catholic priest who served the colony.",
+    "w": "Saints, vol. 2, ch. 27",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   },
+   {
+    "t": "I vowed before God to care for my wife in health and sickness, and until death do us part.",
+    "w": "Napela's petition to the board of health, Oct 1873, as quoted in Saints, vol. 2, ch. 27. He had been dismissed for giving food to needy people not authorized to receive it.",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/27-fire-in-the-dry-grass?lang=eng"
+   },
+   {
+    "text": true,
+    "t": "By January 1878 the disease had reached Napela too. His face was swollen almost beyond recognition and his hands were covered in sores. Still he led the Church on Kalaupapa. On Jan 26 missionaries Henry Richards and Keau Kalawaia and the Molokai leader Nehemia Kahuelaau visited, and Napela took them to meet the Saints on the peninsula.",
+    "w": "Saints, vol. 2, ch. 30",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/30-a-steady-onward-movement?lang=eng"
+   },
+   {
+    "text": true,
+    "t": "Before they left, Napela asked for a blessing, knowing he and Kitty would soon be bedridden and would probably never see Henry again. Henry placed his hands on Napela's head and gave it. The old friends said goodbye, and the three started back up the steep mountain trail.",
+    "w": "Saints, vol. 2, ch. 30",
+    "u": "https://www.churchofjesuschrist.org/study/history/saints-v2/part-3/30-a-steady-onward-movement?lang=eng"
+   }
+  ]
+ }
+];
+var APPLICATION = "";
 
-// Corrections from the journal
-Object.assign(byNumEarly(2), { flag: "Cannon's journal places the falls on the way up Nuuanu Valley and its editors identify them as Kapena Falls. The altar's exact hilltop was never found, so the pin is rough." });
-Object.assign(byNumEarly(15), { date: "Aug 7, 1851", story: "On Aug 7, 1851 Cannon rode into Lahaina and was warmly received at the house of Nalimanui, near the north end of the Old Prison. A separate account says he had a deeply spiritual experience at this home.", flag: "The journal spells the name Nalimanui. The spiritual experience comes from one undated magazine account. The site is a rough guess, and Lahaina was badly damaged by the 2023 fire." });
-Object.assign(byNumEarly(9), { flag: "Cannon's journal confirms the Aug 6, 1851 meeting and the men ordained. The place name is spelled Kealahou in one source and Kealakou in another, and one source says Pulehu." });
-Object.assign(byNumEarly(11), { flag: "The journal confirms the conference on Aug 18, 1851 and that three missionaries wrote from Lahaina that week. It does not name Honomanu in the part I read, and the position is rough." });
-function byNumEarly(n) { for (var i = 0; i < PINS.length; i++) { if (PINS[i].n === n) return PINS[i]; } }
-
-var map = L.map("map", { zoomControl: true, scrollWheelZoom: false }).setView([20.7, -157.2], 7);
+var map = L.map("map", { zoomControl: true, scrollWheelZoom: false }).setView([21.0, -150], 4);
 var streets = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" });
 var esriStreets = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "&copy; Esri, HERE, Garmin, OpenStreetMap contributors" });
 var satellite = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" });
 var topo = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "&copy; Esri, USGS, NOAA" });
 streets.addTo(map);
+var fell = false;
+streets.on("tileerror", function () { if (fell) return; fell = true; map.removeLayer(streets); esriStreets.addTo(map); });
 L.control.layers({ "Streets": streets, "Esri Streets": esriStreets, "Satellite": satellite, "Topographic": topo }).addTo(map);
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
 var byNum = {};
 PINS.forEach(function (p) { byNum[p.n] = p; });
-var steps = ORDER.map(function (n) { return byNum[n]; });
+
+STORIES.forEach(function (s) {
+  if (s.pin) {
+    var p = byNum[s.pin];
+    s.lat = p.lat; s.lng = p.lng;
+    s.approx = !!p.approx;
+  }
+  s.key = s.lat + "," + s.lng;
+});
 
 var markers = {};
-steps.forEach(function (p, i) {
-  var icon = L.divIcon({
-    className: "",
-    html: '<div class="pin future" id="pin' + p.n + '" style="background:' + (p.approx ? "var(--pin-approx)" : "var(--pin-solid)") + '">' + (i + 1) + '</div>',
-    iconSize: [30, 30], iconAnchor: [15, 15]
-  });
-  markers[p.n] = L.marker([p.lat, p.lng], { icon: icon }).addTo(map);
-  markers[p.n].on("click", function () { goTo(i); });
+STORIES.forEach(function (s, i) {
+  if (markers[s.key]) { markers[s.key].nums.push(i + 1); return; }
+  var icon = L.divIcon({ className: "", html: '<div class="pin future" data-key="' + s.key + '" style="background:' + (s.approx ? "var(--pin-approx)" : "var(--pin-solid)") + '">' + (i + 1) + '</div>', iconSize: [30, 30], iconAnchor: [15, 15] });
+  markers[s.key] = { m: L.marker([s.lat, s.lng], { icon: icon }).addTo(map), nums: [i + 1] };
+  markers[s.key].m.on("click", function () { goTo(i); });
 });
 
 var routeLine = L.polyline([], { color: "#0e6f6e", weight: 3, opacity: 0.7, dashArray: "6 8" }).addTo(map);
@@ -977,65 +1394,115 @@ var routeLine = L.polyline([], { color: "#0e6f6e", weight: 3, opacity: 0.7, dash
 var story = document.getElementById("story");
 var introEl = document.createElement("section");
 introEl.className = "step intro active";
-introEl.innerHTML = '<div class="card intro"><div class="when">1850 &ndash; 1865</div><h1>Ten elders, four islands, fifteen years</h1>' +
-  '<p>On November 22, 1850 ten missionaries sailed out of San Francisco for islands most of them had never seen. Scroll to follow them from the Golden Gate to Laie, with George Q. Cannon\'s own journal along the way.</p>' +
+introEl.innerHTML = '<div class="card intro"><div class="when">1850 &ndash; 1878</div><h1>Ten elders, four islands, one gathering place</h1>' +
+  '<p>Twelve stories from the first Latter-day Saint mission to Hawaii, told from journals, diaries and Church histories. Each place on the map is here because a story happened there.</p>' +
   '<div class="hint">Teal pins have a specific site. Amber pins are approximate. Scroll, or tap a pin.</div></div>';
 story.appendChild(introEl);
 
-function quotesHtml(n) {
-  return (QUOTES[n] || []).map(function (q) {
-    return '<blockquote><p>\u201c' + esc(q.t) + '\u201d</p><cite><a href="' + q.u + '" target="_blank" rel="noopener">' + esc(q.w) + '</a></cite></blockquote>';
+function quotesHtml(qs) {
+  return qs.map(function (q) {
+    return '<blockquote><p>“' + esc(q.t) + '”</p><cite><a href="' + q.u + '" target="_blank" rel="noopener">' + esc(q.w) + '</a></cite></blockquote>';
   }).join("");
 }
+function quoteBeat(s, q) {
+  var sec = document.createElement("section");
+  sec.className = "step qstep";
+  var head = '<div class="when">' + esc(s.date) + ' &middot; ' + esc(s.title) + '</div>';
+  if (q.text) {
+    sec.innerHTML = '<div class="card qcard"><div class="textbeat">' + head + '<p>' + esc(q.t) + '</p><cite><a href="' + q.u + '" target="_blank" rel="noopener">' + esc(q.w) + '</a></cite></div></div>';
+  } else {
+    sec.innerHTML = '<div class="card qcard">' + head +
+      '<blockquote class="big"><p>\u201c' + esc(q.t) + '\u201d</p><cite><a href="' + q.u + '" target="_blank" rel="noopener">' + esc(q.w) + '</a></cite></blockquote></div>';
+  }
+  return sec;
+}
 var els = [introEl];
-steps.forEach(function (p, i) {
-  var s = document.createElement("section");
-  s.className = "step";
-  var img = IMAGES[p.n];
+var beats = [{ kind: "intro" }];
+STORIES.forEach(function (s, i) {
+  var sec = document.createElement("section");
+  sec.className = "step";
+  var img = s.img ? IMAGES[s.img] : null;
   var fig = "";
   if (img) {
-    fig = '<figure><img src="' + img.url + '" alt="' + esc(img.caption) + '" loading="lazy" onerror="this.parentNode.remove()">' +
+    fig = '<figure><img src="' + img.url + '" alt="' + esc(img.caption) + '" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<div class=imgfail>Image did not load. <a href=&quot;' + img.page + '&quot; target=_blank>Open it on Wikimedia Commons</a></div>\'">' +
       '<figcaption>' + esc(img.caption) + ' &middot; ' + esc(img.credit) + ' &middot; <a href="' + img.page + '" target="_blank" rel="noopener">' + esc(img.license) + '</a></figcaption></figure>';
   }
-  var links = p.src.map(function (x) { return '<a href="' + x[1] + '" target="_blank" rel="noopener">' + esc(x[0]) + '</a>'; }).join("");
-  s.innerHTML = '<div class="card"><div class="when">' + esc(p.date) + '</div><h2>' + (i + 1) + '. ' + esc(p.name) + '</h2>' +
-    '<div class="where">' + esc(p.island) + '</div>' + fig + '<p>' + esc(p.story) + '</p>' + quotesHtml(p.n) +
-    '<div class="flag">' + esc(p.flag) + '</div><div class="src">' + links + '</div></div>';
-  story.appendChild(s);
-  els.push(s);
+  var links = s.src.map(function (x) { return '<a href="' + x[1] + '" target="_blank" rel="noopener">' + esc(x[0]) + '</a>'; }).join("");
+  sec.innerHTML = '<div class="card"><div class="when">' + esc(s.date) + '</div><h2>' + (i + 1) + '. ' + esc(s.title) + '</h2>' +
+    '<div class="where">' + esc(s.place) + '</div>' + fig + '<p>' + esc(s.text) + '</p>' +
+    (s.dc ? '<div class="dc">' + esc(s.dc) + '</div>' : '') +
+    (s.flag ? '<div class="flag">' + esc(s.flag) + '</div>' : '') + '<div class="src">' + links + '</div></div>';
+  story.appendChild(sec);
+  els.push(sec);
+  beats.push({ kind: "loc", i: i });
+  var items = s.items || s.quotes;
+  items.forEach(function (q, k) {
+    var qe = quoteBeat(s, q);
+    story.appendChild(qe);
+    els.push(qe);
+    beats.push({ kind: "quote", i: i, k: k + 1, m: items.length });
+  });
 });
 
 var closing = document.createElement("section");
 closing.className = "step";
-closing.innerHTML = '<div class="card"><div class="when">Sources and limits</div><h2>What this map does not know</h2>' +
-  '<p>Most coordinates are approximate and several dates differ between sources. Each stop lists its sources and flags where they disagree.</p></div>';
+closing.innerHTML = '<div class="card cl"><div class="when">Sources and application</div><h2>What these stories rest on</h2>' +
+  '<h3>Sources</h3><ul>' +
+  '<li>George Q. Cannon, journal, 1850-1851, <a href="https://www.churchhistorianspress.org/george-q-cannon/1850s/1850/11-1850" target="_blank" rel="noopener">Church Historian\'s Press</a> (Cannon later became an apostle)</li>' +
+  '<li><a href="https://www.churchofjesuschrist.org/study/history/saints-v2/part-2/11-a-glorious-privilege?lang=eng" target="_blank" rel="noopener">Saints, vol. 2</a>, Church History Department</li>' +
+  '<li><a href="https://www.churchofjesuschrist.org/study/history/global-histories/hawaii/stories-of-faith/hi-02-gathering-in-lanai-and-laie?lang=eng" target="_blank" rel="noopener">Church History, Gathering in Lanai and Laie</a></li>' +
+  '<li><a href="https://lib.byu.edu/collections/mormon-missionary-diaries/about/diarists/william-farrer/" target="_blank" rel="noopener">William Farrer diary</a>, BYU Library</li></ul>' +
+  '<h3>Doctrine and Covenants</h3><div class="dc">D&amp;C 136: captains of companies for the gathering on Lanai.</div>' +
+  '<div class="dc">D&amp;C 115:6: "a refuge from the storm," the Church History page\'s tie for choosing Laie.</div>' +
+  (APPLICATION ? '<h3>Application</h3><p>' + esc(APPLICATION) + '</p>' : '') +
+  '<h3>Limits</h3><p>Several coordinates are approximate and some dates differ between sources. Each story flags where.</p></div>';
 story.appendChild(closing);
 els.push(closing);
+beats.push({ kind: "end" });
 
 var current = -1;
+function lerp(a, b, f) { return a + (b - a) * f; }
 function activate(idx) {
   if (idx === current) return;
   current = idx;
   els.forEach(function (e, k) { e.classList.toggle("active", k === idx); });
   document.getElementById("bar").style.width = (idx / (els.length - 1) * 100) + "%";
+  var b = beats[idx];
+  var curStory = b.kind === "loc" || b.kind === "quote" ? b.i : (b.kind === "end" ? STORIES.length : -1);
   var visited = [];
-  steps.forEach(function (p, i) {
-    var el = document.getElementById("pin" + p.n);
-    if (!el) return;
-    var stepIdx = i + 1;
-    el.className = "pin " + (stepIdx === idx ? "on" : stepIdx < idx ? "seen" : "future");
-    if (stepIdx <= idx) visited.push([p.lat, p.lng]);
+  var lastKey = null;
+  var state = {};
+  STORIES.forEach(function (s, i) {
+    var st = i === curStory && b.kind !== "end" ? "on" : i < curStory ? "seen" : "future";
+    if (state[s.key] !== "on" && (st === "on" || state[s.key] !== "seen")) state[s.key] = st;
+    if (i <= curStory && s.key !== lastKey) { visited.push([s.lat, s.lng]); lastKey = s.key; }
   });
-  routeLine.setLatLngs(visited);
-  if (idx === 0 || idx === els.length - 1) {
-    map.flyTo([20.7, -157.2], 7, { duration: 1.2 });
+  document.querySelectorAll(".pin").forEach(function (el) { el.className = "pin " + (state[el.getAttribute("data-key")] || "future"); });
+  if (b.kind === "intro") {
+    routeLine.setLatLngs([]);
+    map.flyTo([21.0, -150], 4, { duration: 1.4 });
+  } else if (b.kind === "end") {
+    routeLine.setLatLngs(visited);
+    map.flyTo([20.9, -157.0], 7, { duration: 1.4 });
   } else {
-    var p = steps[idx - 1];
-    map.flyTo([p.lat, p.lng], p.island === "Maui" ? 10 : 10, { duration: 1.2 });
+    var s = STORIES[b.i];
+    var next = STORIES[b.i + 1];
+    if (b.kind === "quote" && s.transit && next) {
+      var f = b.k / (b.m + 1);
+      var la = lerp(s.lat, next.lat, f), ln = lerp(s.lng, next.lng, f);
+      visited.push([la, ln]);
+      routeLine.setLatLngs(visited);
+      map.flyTo([la, ln], 4, { duration: 1.6 });
+    } else {
+      routeLine.setLatLngs(visited);
+      map.flyTo([s.lat, s.lng], s.zoom || 10, { duration: 1.4 });
+    }
   }
 }
 
-function goTo(i) { els[i + 1].scrollIntoView({ behavior: "smooth", block: "center" }); }
+function goTo(i) {
+  for (var k = 0; k < beats.length; k++) { if (beats[k].kind === "loc" && beats[k].i === i) { els[k].scrollIntoView({ behavior: "smooth", block: "center" }); return; } }
+}
 
 var obs = new IntersectionObserver(function (entries) {
   entries.forEach(function (en) {
